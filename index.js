@@ -14,11 +14,12 @@ if (argv.length <= 2) {
 const mocha = resolve(__dirname, './node_modules/mocha/bin/mocha');
 const testFile = resolve(__dirname, argv[2].replace(/test(?:.js)?$/, ''), 'test.js');
 
+
 // 定时器用于判断测试样例超时
 let timerId = -1;
 function timeout(log) {
   // eslint-disable-next-line no-console
-  console.error(`\n    ${symbols.error} ${log}\n      ${ansi.red('运行超时')}`);
+  console.error(`\n    ${symbols.error} ${log}\n      ${ansi.red('运行超时')}\n\n`);
   testProcess.kill();
 }
 function setTimer(log, delay = 5000) {
