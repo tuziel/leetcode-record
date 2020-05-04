@@ -3,13 +3,16 @@
  * @return {number}
  */
 var cuttingRope = function (n) {
+  // 3 以内必须切分成 2 段
   if (n <= 3) return n - 1;
+
+  // 4 以后最优为尽量多长度为 3 的段，其次长度为 2 的段
   var quotient = n / 3 >> 0;
   var mod = n % 3;
-  var countThree = mod === 1 ? quotient - 1 : quotient;
-  var countTwo = mod === 0 ? 0 : 3 - mod;
 
-  return Math.pow(3, countThree) * Math.pow(2, countTwo);
+  if (mod === 0) return Math.pow(3, quotient);
+  if (mod === 1) return Math.pow(3, quotient - 1) * 4;
+  return Math.pow(3, quotient) * 2;
 };
 
 module.exports = cuttingRope;
