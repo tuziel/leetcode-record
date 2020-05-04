@@ -17,7 +17,7 @@ var jump = function (nums) {
    * 显然，从一个区间跳到下一个区间至少需要跳一次
    */
 
-  // 当前区间能够一步跳到终点则结束循环
+  // 当前区间包含终点，即上个区间已经可以跳到终点则结束循环
   while (right < end) {
     // 当前区间能跳到的最远值
     next = max(next, index + nums[index]);
