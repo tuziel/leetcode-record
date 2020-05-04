@@ -13,7 +13,7 @@ const samples = [
 
 describe('面试题13. 机器人的运动范围', function () {
   for (const i of samples) {
-    process.send({ log: tepmlate(i) });
+    process.send && process.send({ log: tepmlate(i) });
     it(tepmlate(i), function () {
       expect(movingCount.apply(null, i.input)).to.be.equal(i.output);
     });

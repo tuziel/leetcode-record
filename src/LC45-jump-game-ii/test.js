@@ -21,7 +21,7 @@ const samples = [
 
 describe('45. 跳跃游戏 II', function () {
   for (const i of samples) {
-    process.send({ log: tepmlate(i) });
+    process.send && process.send({ log: tepmlate(i) });
     it(tepmlate(i), function () {
       expect(jump(i.input)).to.be.equal(i.output);
     });
