@@ -13,7 +13,7 @@
 <pre><strong>输入:</strong> [2,3,1,1,4]
 <strong>输出:</strong> 2
 <strong>解释:</strong> 跳到最后一个位置的最小跳跃数是 <code>2</code>。
-&nbsp;    从下标为 0 跳到下标为 1 的位置，跳&nbsp;<code>1</code>&nbsp;步，然后跳&nbsp;<code>3</code>&nbsp;步到达数组的最后一个位置。
+      从下标为 0 跳到下标为 1 的位置，跳 <code>1</code> 步，然后跳 <code>3</code> 步到达数组的最后一个位置。
 </pre>
 
 **说明:**
