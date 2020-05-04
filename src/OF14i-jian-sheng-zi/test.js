@@ -16,7 +16,7 @@ const samples = [
   { input: 58, output: 1549681956, },
 ];
 
-describe('45. 跳跃游戏 II', function () {
+describe('面试题14- I. 剪绳子', function () {
   for (const i of samples) {
     process.send && process.send({ log: tepmlate(i) });
     it(tepmlate(i), function () {
