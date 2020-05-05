@@ -4,7 +4,7 @@ task({
   type: 'default',
   func: require('.'),
   title: '面试题14- I. 剪绳子',
-  tepmlate: ({ input, output }) => `输入：${input}; 输出：${output}`,
+  tepmlate: ({ input, output }) => `输入: ${input}; 输出: ${output}`,
   samples: [
     { input: 2, output: 1, },
     { input: 3, output: 2, },

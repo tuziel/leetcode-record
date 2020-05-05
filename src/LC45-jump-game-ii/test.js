@@ -5,7 +5,7 @@ task({
   func: require('.'),
   title: '45. 跳跃游戏 II',
   tepmlate: ({ input, output }) =>
-    `输入：${JSON.stringify(input)}; 输出：${output}`,
+    `输入: ${JSON.stringify(input)}; 输出: ${output}`,
   samples: [
     { input: [], output: 0, },
     { input: [1], output: 0, },

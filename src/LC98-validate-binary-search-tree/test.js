@@ -5,7 +5,7 @@ task({
   func: require('.'),
   title: '98. 验证二叉搜索树',
   tepmlate: ({ input, output }) =>
-    `输入：${JSON.stringify(input)}; 输出：${output}`,
+    `输入: ${JSON.stringify(input)}; 输出: ${output}`,
   samples: [
     { input: [], output: true, },
     { input: [0], output: true, },
