@@ -12,7 +12,7 @@ if (argv.length <= 2) {
 }
 
 const mocha = resolve(__dirname, './node_modules/mocha/bin/mocha');
-const testFile = resolve(__dirname, argv[2].replace(/test(?:.js)?$/, ''), 'test.js');
+const testFile = resolve(__dirname, argv[2]);
 
 
 // 定时器用于判断测试样例超时
