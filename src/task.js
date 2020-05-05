@@ -49,7 +49,7 @@ function expectDefault(func) {
 function expectArgs(func) {
   return function ({ input, output }) {
     return function () {
-      expect(func.apply(null, input)).to.be.equal(output);
+      expect(func(...input)).to.be.equal(output);
     };
   };
 }
