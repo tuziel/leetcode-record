@@ -73,9 +73,13 @@ function createTree(values) {
   const left = (x) => (x << 1) + 1;
   const right = (x) => (x + 1 << 1);
   for (let i = len; i--;) {
-    const node = nodes[i] = new TreeNode(values[i]);
-    if (left(i) < len) node.left = nodes[left(i)];
-    if (right(i) < len) node.right = nodes[right(i)];
+    if (values[i] == null) {
+      nodes[i] = null;
+    } else {
+      const node = nodes[i] = new TreeNode(values[i]);
+      if (left(i) < len) node.left = nodes[left(i)];
+      if (right(i) < len) node.right = nodes[right(i)];
+    }
   }
   return nodes[0];
 }
