@@ -81,5 +81,5 @@ function createTree(values) {
       if (right(i) < len) node.right = nodes[right(i)];
     }
   }
-  return nodes[0];
+  return nodes[0] || null;
 }
