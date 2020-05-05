@@ -29,7 +29,8 @@ module.exports = {
     ],
     "eqeqeq": [
       "error",
-      "always"
+      "always",
+      { "null": "ignore" }
     ],
     "no-console": "warn",
     "no-unused-vars": "warn"
