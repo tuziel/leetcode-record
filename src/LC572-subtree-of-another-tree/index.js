@@ -11,7 +11,7 @@
  * @return {boolean}
  */
 var isSubtree = function (s, t) {
-  if (t === null) return s === null;
+  if (t === null) return true;
 
   var rootVal = t.val;
   var list = [s];
