@@ -7,6 +7,7 @@ const func = require('.');
 const title = '45. 跳跃游戏 II';
 const tepmlate = ({ input, output }) =>
   `输入：${JSON.stringify(input)}; 输出：${output}`;
+
 const samples = [
   {
     input: [
