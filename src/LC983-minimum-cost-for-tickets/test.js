@@ -5,8 +5,8 @@ const expect = require('chai').expect;
 const func = require('.');
 const title = '983. 最低票价';
 const tepmlate = ({ input, output }) =>
-  `输入: days = ${JSON.stringify(input[0])},
-      costs =  ${JSON.stringify(input[1])};
+  `输入: days = ${JSON.stringify(input[0])}
+            costs =  ${JSON.stringify(input[1])}
       输出: ${output}`;
 
 const samples = [
@@ -44,7 +44,7 @@ describe(title, function () {
   for (const i of samples) {
     process.send && process.send({ log: tepmlate(i) });
     it(tepmlate(i), function () {
-      expect(func(...i.input)).to.be.equal(i.output);
+      expect(func(...i.input)).to.equal(i.output);
     });
   }
 });

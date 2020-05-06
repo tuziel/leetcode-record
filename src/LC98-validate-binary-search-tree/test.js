@@ -7,6 +7,7 @@ const func = require('.');
 const title = '98. 验证二叉搜索树';
 const tepmlate = ({ input, output }) =>
   `输入: ${JSON.stringify(input)}; 输出: ${output}`;
+
 const samples = [
   { input: [], output: true, },
   { input: [0], output: true, },
@@ -20,7 +21,7 @@ describe(title, function () {
   for (const i of samples) {
     process.send && process.send({ log: tepmlate(i) });
     it(tepmlate(i), function () {
-      expect(func(createTree(i.input))).to.be.equal(i.output);
+      expect(func(createTree(i.input))).to.equal(i.output);
     });
   }
 });

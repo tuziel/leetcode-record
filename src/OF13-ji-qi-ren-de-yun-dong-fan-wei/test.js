@@ -16,7 +16,7 @@ describe(title, function () {
   for (const i of samples) {
     process.send && process.send({ log: tepmlate(i) });
     it(tepmlate(i), function () {
-      expect(func(...i.input)).to.be.equal(i.output);
+      expect(func(...i.input)).to.equal(i.output);
     });
   }
 });

@@ -50,7 +50,7 @@ describe(title, function () {
   for (const i of samples) {
     process.send && process.send({ log: tepmlate(i) });
     it(tepmlate(i), function () {
-      expect(func(...i.input.map((arr) => createTree(arr)))).to.be.equal(i.output);
+      expect(func(...i.input.map((arr) => createTree(arr)))).to.equal(i.output);
     });
   }
 });
