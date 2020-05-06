@@ -4,21 +4,25 @@
  * @return {number}
  */
 var mincostTickets = function (days, costs) {
-  var dp = [];
-  var i = 366;
-  var j = days.length - 1;
+  var last = days.length - 1;
+  var end = days[last];
+  var index = end + 1;
+  var a = costs[0];
+  var b = costs[1];
+  var c = costs[2];
+  var dp = new Array(end);
 
   var min = (a, b) => a < b ? a : b;
-  var getDp = (x) => dp[x] || 0;
+  var getDp = (i) => i <= end ? dp[i] : 0;
 
-  for (; --i;) {
-    if (days[j] < i) {
+  while (--index) {
+    if (days[last] < index) {
       // 不需要出行
-      dp[i] = getDp(i + 1);
+      dp[index] = getDp(index + 1);
     } else {
       // 需要出行
-      dp[i] = min(min(costs[0] + getDp(i + 1), costs[1] + getDp(i + 7)), costs[2] + getDp(i + 30));
-      j--;
+      dp[index] = min(min(a + getDp(index + 1), b + getDp(index + 7)), c + getDp(index + 30));
+      last--;
     }
   }
 
