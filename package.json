@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./index.js"
+    "test": "node ./index.js",
+    "mocha": "mocha"
   },
   "author": "tuziel<tuziel@outlook.com>",
   "license": "MIT",
