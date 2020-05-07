@@ -6,7 +6,9 @@ const { createTree } = require('../utils');
 const func = require('.');
 const title = '45. 跳跃游戏 II';
 const tepmlate = ({ input, output }) =>
-  `输入：${JSON.stringify(input)}; 输出：${output}`;
+  `输入: ${JSON.stringify(input[0])}
+            ${JSON.stringify(input[1])}
+      输出: ${output}`;
 
 const samples = [
   {
@@ -50,7 +52,7 @@ describe(title, function () {
   for (const i of samples) {
     process.send && process.send({ log: tepmlate(i) });
     it(tepmlate(i), function () {
-      expect(func(...i.input.map((arr) => createTree(arr)))).to.equal(i.output);
+      expect(func(...i.input.map(createTree))).to.equal(i.output);
     });
   }
 });
