@@ -1,5 +1,8 @@
 module.exports = {
+  TreeNode,
   createTree,
+  ListNode,
+  createList,
 };
 
 function TreeNode(val) {
@@ -22,4 +25,21 @@ function createTree(values) {
     }
   }
   return nodes[0] || null;
+}
+
+function ListNode(val) {
+  this.val = val;
+  this.next = null;
+}
+
+function createList(values) {
+  let len = values.length;
+  let node = null;
+  let prev;
+  while (len--) {
+    prev = new ListNode(values[len]);
+    prev.next = node;
+    node = prev;
+  }
+  return node;
 }
