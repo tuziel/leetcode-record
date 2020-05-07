@@ -1,6 +1,8 @@
 /* global describe it */
 const process = require('process');
 const expect = require('chai').expect;
+const { ListNode, createList } = require('../utils');
+global.ListNode = ListNode;
 
 const func = require('.');
 const title = '2. 两数相加';
@@ -39,9 +41,6 @@ const samples = [
     output: [0, 0, 1],
   },
 ];
-
-const { ListNode, createList } = require('../utils');
-global.ListNode = ListNode;
 
 describe(title, function () {
   for (const i of samples) {
