@@ -1,6 +1,7 @@
 module.exports = {
   TreeNode,
   createTree,
+  createTreeList,
   ListNode,
   createList,
 };
@@ -25,6 +26,23 @@ function createTree(values) {
     }
   }
   return nodes[0] || null;
+}
+
+function createTreeList(values) {
+  const len = values.length;
+  const nodes = [];
+  const left = (x) => (x << 1) + 1;
+  const right = (x) => (x + 1 << 1);
+  for (let i = len; i--;) {
+    if (values[i] == null) {
+      nodes[i] = null;
+    } else {
+      const node = nodes[i] = new TreeNode(values[i]);
+      if (left(i) < len) node.left = nodes[left(i)];
+      if (right(i) < len) node.right = nodes[right(i)];
+    }
+  }
+  return nodes;
 }
 
 function ListNode(val) {
