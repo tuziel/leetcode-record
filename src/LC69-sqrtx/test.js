@@ -8,8 +8,8 @@ const tepmlate = ({ input, output }) =>
   `输入: ${input}; 输出: ${output}`;
 
 const samples = [
-  { input: 4, output: 2, },
-  { input: 8, output: 2, },
+  { input: 4, output: 2 },
+  { input: 8, output: 2 },
 ];
 
 describe(title, function () {

@@ -13,35 +13,35 @@ const samples = [
   {
     input: [
       'a',
-      'a'
+      'a',
     ],
     output: 1,
   },
   {
     input: [
       'aaaaa',
-      'aaaaa'
+      'aaaaa',
     ],
     output: 5,
   },
   {
     input: [
       'godding',
-      'gd'
+      'gd',
     ],
     output: 4,
   },
   {
     input: [
       'iotfo',
-      'fioot'
+      'fioot',
     ],
     output: 11,
   },
   {
     input: [
       'axxxxxxxxxxxbcdexdxbxcxa',
-      'edcba'
+      'edcba',
     ],
     output: 26,
   },

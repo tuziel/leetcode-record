@@ -9,10 +9,10 @@ const tepmlate = ({ input, output }) =>
       输出: ${output}`;
 
 const samples = [
-  { input: [2.00000, 10], output: Math.pow(2.00000, 10), },
-  { input: [2.10000, 3], output: Math.pow(2.10000, 3), },
-  { input: [2.00000, -2], output: Math.pow(2.00000, -2), },
-  { input: [1.00000, -2147483648], output: Math.pow(1.00000, -2147483648), },
+  { input: [2.00000, 10], output: Math.pow(2.00000, 10) },
+  { input: [2.10000, 3], output: Math.pow(2.10000, 3) },
+  { input: [2.00000, -2], output: Math.pow(2.00000, -2) },
+  { input: [1.00000, -2147483648], output: Math.pow(1.00000, -2147483648) },
 ];
 
 describe(title, function () {

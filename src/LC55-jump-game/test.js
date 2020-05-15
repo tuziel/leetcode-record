@@ -9,9 +9,9 @@ const tepmlate = ({ input, output }) =>
       输出: ${output}`;
 
 const samples = [
-  { input: [0], output: true, },
-  { input: [2, 3, 1, 1, 4], output: true, },
-  { input: [3, 2, 1, 0, 4], output: false, },
+  { input: [0], output: true },
+  { input: [2, 3, 1, 1, 4], output: true },
+  { input: [3, 2, 1, 0, 4], output: false },
 ];
 
 describe(title, function () {

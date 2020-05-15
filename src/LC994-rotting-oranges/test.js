@@ -8,10 +8,10 @@ const tepmlate = ({ input, output }) =>
   `输入: ${JSON.stringify(input)}; 输出: ${output}`;
 
 const samples = [
-  { input: [[2, 1, 1], [1, 1, 0], [0, 1, 1]], output: 4, },
-  { input: [[2, 1, 1], [0, 1, 1], [1, 0, 1]], output: -1, },
-  { input: [[0, 2]], output: 0, },
-  { input: [[0, 1]], output: -1, },
+  { input: [[2, 1, 1], [1, 1, 0], [0, 1, 1]], output: 4 },
+  { input: [[2, 1, 1], [0, 1, 1], [1, 0, 1]], output: -1 },
+  { input: [[0, 2]], output: 0 },
+  { input: [[0, 1]], output: -1 },
 ];
 
 describe(title, function () {

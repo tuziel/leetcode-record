@@ -7,10 +7,10 @@ const title = '面试题14- II. 剪绳子 II';
 const tepmlate = ({ input, output }) => `输入: ${input}; 输出: ${output}`;
 
 const samples = [
-  { input: 58, output: 549681949, },
-  { input: 100, output: 703522804, },
-  { input: 512, output: 337299684, },
-  { input: 1000, output: 620946522, },
+  { input: 58, output: 549681949 },
+  { input: 100, output: 703522804 },
+  { input: 512, output: 337299684 },
+  { input: 1000, output: 620946522 },
 ];
 
 describe(title, function () {

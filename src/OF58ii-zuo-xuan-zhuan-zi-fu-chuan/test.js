@@ -9,8 +9,8 @@ const tepmlate = ({ input, output }) =>
       输出: ${output}`;
 
 const samples = [
-  { input: ['abcdefg', 2], output: 'cdefgab', },
-  { input: ['lrloseumgh', 6], output: 'umghlrlose', },
+  { input: ['abcdefg', 2], output: 'cdefgab' },
+  { input: ['lrloseumgh', 6], output: 'umghlrlose' },
 ];
 
 describe(title, function () {
