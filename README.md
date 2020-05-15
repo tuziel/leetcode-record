@@ -11,6 +11,10 @@
 ```
 
 ## 命令行
-```
+```shell
+# 通过子进程执行测试防止死循环
 npm run test <file>
+
+# 直接使用 mocha 测试
+mocha <file>
 ```
