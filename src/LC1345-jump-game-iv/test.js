@@ -5,7 +5,7 @@ const expect = require('chai').expect;
 const func = require('.');
 const title = '1306. 跳跃游戏 III';
 const tepmlate = ({ input, output }) =>
-  `输入: ${JSON.stringify(input)}
+  `输入: ${JSON.stringify(input).slice(0, 64)}${input.length > 64 ? '...' : ''}
       输出: ${output}`;
 
 const samples = [
