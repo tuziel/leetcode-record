@@ -3,22 +3,26 @@
  * @return {boolean}
  */
 var isPalindrome = function (s) {
-  var left = 0;
-  var right = s.length - 1;
-  if (right <= 0) return true;
+  var left = -1;
+  var right = s.length;
+  var codeL, codeR;
 
-  var isLetter = (c) => ('0' <= c && c <= '9') || ('a' <= c && c <= 'z');
-
-  while (left < right) {
-    var charL = s[left].toLowerCase();
-    var charR = s[right].toLowerCase();
-    if (charL === charR) { left++; right--; }
-    else if (!isLetter(charL)) { left++; }
-    else if (!isLetter(charR)) { right--; }
-    else { return false; }
+  while (++left < --right) {
+    while (isUselessCode(codeL = getUppercaseCode(s[left])) && left < right) left++;
+    while (isUselessCode(codeR = getUppercaseCode(s[right])) && left < right) right--;
+    if (codeL !== codeR) return false;
   }
 
   return true;
 };
+
+function getUppercaseCode(char) {
+  var code = char.charCodeAt();
+  return 97 <= code && code <= 122 ? code - 32 : code;
+}
+
+function isUselessCode(code) {
+  return code < 48 || (57 < code && code < 65) || 90 < code;
+}
 
 module.exports = isPalindrome;
