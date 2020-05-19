@@ -4,25 +4,27 @@
  */
 var findTheLongestSubstring = function (s) {
   var len = s.length;
+  // 压缩状态到二进制位
   var map = { a: 1, e: 2, i: 4, o: 8, u: 16 };
-  var record = Array.from(new Array(32), () => []);
-  var status = new Array(len);
+  // 五个状态位一共 32 种状态
+  var record = new Array(32);
   var result = 0;
-  var curr = status[0] = map[s[0]] || 0;
-  record[curr].push(0);
+  var curr = 0;
 
   var max = (a, b) => a > b ? a : b;
 
-  for (var i = 1; i < len; i++) {
-    status[i] = curr ^= map[s[i]];
-    record[curr].push(i);
-  }
-
-  if (record[0].length) result = record[0].pop() + 1;
-
-  for (i = 1; i < 32; i++) {
-    if (record[i].length < 2) continue;
-    result = max(result, record[i].pop() - record[i][0]);
+  // 状态 0 的长度从位置 0 的左边开始计算
+  // |xaeix| => |01370|
+  // 其余状态从第一次出现位置的右边开始计算
+  // a|eixxie| => 1|377731|
+  record[0] = -1;
+  for (var i = 0; i < len; i++) {
+    // 计算当前状态
+    curr ^= map[s[i]];
+    // 记录状态第一次出现的位置
+    if (record[curr] === void 0) record[curr] = i;
+    // 计算两次相同状态之间的距离
+    else result = max(result, i - record[curr]);
   }
 
   return result;
