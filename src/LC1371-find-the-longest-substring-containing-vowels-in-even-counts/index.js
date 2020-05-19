@@ -14,7 +14,7 @@ var findTheLongestSubstring = function (s) {
   var max = (a, b) => a > b ? a : b;
 
   // 状态 0 的长度从位置 0 的左边开始计算
-  // |xaeix| => |01370|
+  // |aeiieax| => |1377310|
   // 其余状态从第一次出现位置的右边开始计算
   // a|eixxie| => 1|377731|
   record[0] = -1;
@@ -23,7 +23,7 @@ var findTheLongestSubstring = function (s) {
     curr ^= map[s[i]];
     // 记录状态第一次出现的位置
     if (record[curr] === void 0) record[curr] = i;
-    // 计算两次相同状态之间的距离
+    // 计算两次相同状态之间的最长距离
     else result = max(result, i - record[curr]);
   }
 
