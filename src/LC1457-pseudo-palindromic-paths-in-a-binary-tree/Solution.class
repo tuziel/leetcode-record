@@ -1,0 +1,46 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int singels = 0;
+    public int res = 0;
+    public Map<Integer, Boolean> map = new HashMap<Integer, Boolean>();
+
+    public int pseudoPalindromicPaths (TreeNode root) {
+        dfs(root);
+
+        return res;
+    }
+
+    public void dfs(TreeNode node) {
+        Boolean flag = map.get(node.val);
+        if (flag == null) flag = false;
+        map.put(node.val, !flag);
+
+        if (flag) singels--;
+        else singels++;
+
+        if (node.left == null && node.right == null) {
+            if (singels <= 1) res++;
+        }
+
+        if (node.left != null) dfs(node.left);
+        if (node.right != null) dfs(node.right);
+
+        map.put(node.val, flag);
+        if (flag) singels++;
+        else singels--;
+    }
+}
