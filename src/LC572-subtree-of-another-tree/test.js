@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const { createTree } = require('../utils');
 
 const func = require('.');
-const title = '45. 跳跃游戏 II';
+const title = '572. 另一个树的子树';
 const tepmlate = ({ input, output }) =>
   `输入: ${JSON.stringify(input[0])}
             ${JSON.stringify(input[1])}

@@ -12,36 +12,29 @@ function TreeNode(val) {
 }
 
 function createTree(values) {
-  const len = values.length;
-  const nodes = [];
-  const left = (x) => (x << 1) + 1;
-  const right = (x) => (x + 1 << 1);
-  for (let i = len; i--;) {
-    if (values[i] == null) {
-      nodes[i] = null;
-    } else {
-      const node = nodes[i] = new TreeNode(values[i]);
-      if (left(i) < len) node.left = nodes[left(i)];
-      if (right(i) < len) node.right = nodes[right(i)];
-    }
-  }
-  return nodes[0] || null;
+  return createTreeList(values)[0] || null;
 }
 
 function createTreeList(values) {
   const len = values.length;
-  const nodes = [];
-  const left = (x) => (x << 1) + 1;
-  const right = (x) => (x + 1 << 1);
-  for (let i = len; i--;) {
-    if (values[i] == null) {
-      nodes[i] = null;
-    } else {
-      const node = nodes[i] = new TreeNode(values[i]);
-      if (left(i) < len) node.left = nodes[left(i)];
-      if (right(i) < len) node.right = nodes[right(i)];
-    }
+  if (!len) return [];
+
+  const rootVal = values[0];
+  if (rootVal === null) return [null];
+
+  const nodes = [new TreeNode(rootVal)];
+  let i = 1;
+  let j = 0;
+  let parent, curr;
+
+  while (i < len) {
+    while ((parent = nodes[j++]) === null);
+    curr = values[i++];
+    nodes.push(parent.left = curr !== null ? new TreeNode(curr) : null);
+    curr = values[i++];
+    nodes.push(parent.right = curr !== null ? new TreeNode(curr) : null);
   }
+
   return nodes;
 }
 
