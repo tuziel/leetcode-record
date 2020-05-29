@@ -1,4 +1,11 @@
-# 面试题14- II. 剪绳子 II [MEDIUM]
+---
+tags:
+- O(n)
+- 数学推导
+- 大数运算
+---
+
+# 面试题14- II. 剪绳子 II [Medium]
 
 <https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/>
 
