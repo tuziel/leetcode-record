@@ -3,17 +3,15 @@
  * @return {number}
  */
 var rob = function (nums) {
-  var dp = [];
-  dp[-3] = dp[-2] = dp[-1] = 0;
-  var len = nums.length;
+  var index = nums.length + 3;
+  var dp = new Array(index);
+  dp[--index] = dp[--index] = dp[--index] = 0;
 
   var max = (a, b) => a > b ? a : b;
 
-  for (var index = 0; index < nums.length; index++) {
-    dp[index] = max(dp[index - 3], dp[index - 2]) + max(0, nums[index]);
-  }
+  while (index--) dp[index] = max(dp[index + 2], dp[index + 3]) + nums[index];
 
-  return max(dp[len - 2], dp[len - 1]);
+  return max(dp[0], dp[1]);
 };
 
 module.exports = rob;
