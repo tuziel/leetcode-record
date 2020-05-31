@@ -2,7 +2,7 @@
 const process = require('process');
 const expect = require('chai').expect;
 
-const func = require('./index2');
+const func = require('.');
 const title = '84. 柱状图中最大的矩形';
 const tepmlate = ({ input, output }) =>
   `输入: ${((i) => `${i.slice(0, 64)}${i.length > 64 ? '...' : ''}`)(JSON.stringify(input))}
