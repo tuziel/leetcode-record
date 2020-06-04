@@ -17,7 +17,6 @@ var reverseKGroup = function (head, k) {
   var next = end.next;
   var nextHead, nextEnd;
 
-  // eslint-disable-next-line no-constant-condition
   while (1) {
     [nextHead, nextEnd] = swap(next, k);
     if (nextHead === next) break;

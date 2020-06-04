@@ -36,6 +36,7 @@ module.exports = {
       "always",
       { "null": "ignore" }
     ],
+    "no-constant-condition": "off",
     "no-console": "warn",
     "no-unused-vars": "warn"
   }
