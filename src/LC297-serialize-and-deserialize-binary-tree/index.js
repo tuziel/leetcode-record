@@ -28,7 +28,8 @@ var serialize = function (root) {
     }
   }
 
-  while (data[data.length - 1] === 'null') data.pop();
+  while (data[--index] === 'null');
+  data.length = index + 1;
 
   return `[${data}]`;
 };
