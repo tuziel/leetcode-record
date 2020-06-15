@@ -24,11 +24,11 @@ var serialize = function (root) {
         data.push(curr.left);
         data.push(curr.right);
       }
-      data[index++] = curr && curr.val;
+      data[index++] = curr === null ? 'null' : curr.val;
     }
   }
 
-  return data;
+  return `[${data}]`;
 };
 
 /**
@@ -38,6 +38,7 @@ var serialize = function (root) {
  * @return {TreeNode}
  */
 var deserialize = function (data) {
+  data = JSON.parse(data);
   const len = data.length;
   if (!len) return null;
 
