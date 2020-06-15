@@ -28,6 +28,8 @@ var serialize = function (root) {
     }
   }
 
+  while (data[data.length - 1] === 'null') data.pop();
+
   return `[${data}]`;
 };
 
@@ -53,9 +55,9 @@ var deserialize = function (data) {
   while (i < len) {
     while ((parent = nodes[j++]) === null);
     curr = data[i++];
-    nodes.push(parent.left = curr !== null ? new TreeNode(curr) : null);
+    nodes.push(parent.left = curr != null ? new TreeNode(curr) : null);
     curr = data[i++];
-    nodes.push(parent.right = curr !== null ? new TreeNode(curr) : null);
+    nodes.push(parent.right = curr != null ? new TreeNode(curr) : null);
   }
 
   return nodes[0];

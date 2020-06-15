@@ -30,9 +30,9 @@ function createTreeList(values) {
   while (i < len) {
     while ((parent = nodes[j++]) === null);
     curr = values[i++];
-    nodes.push(parent.left = curr !== null ? new TreeNode(curr) : null);
+    nodes.push(parent.left = curr != null ? new TreeNode(curr) : null);
     curr = values[i++];
-    nodes.push(parent.right = curr !== null ? new TreeNode(curr) : null);
+    nodes.push(parent.right = curr != null ? new TreeNode(curr) : null);
   }
 
   return nodes;
