@@ -21,12 +21,10 @@ var isMatch = function (s, p) {
     else if (nextState === '*') {
       var plurals = 0;
       if (state === '.') {
-        while (chars[index + plurals++])
-          ;
+        while (chars[index + plurals++]);
       }
       else {
-        while (chars[index + plurals++] === state)
-          ;
+        while (chars[index + plurals++] === state);
       }
       while (plurals--) {
         if (traversal(index + plurals, current + 2)) {
