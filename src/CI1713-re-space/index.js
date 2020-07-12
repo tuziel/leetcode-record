@@ -75,10 +75,3 @@ var respace = function (dictionary, sentence) {
 };
 
 module.exports = respace;
-
-// console.log(respace(['looked', 'just', 'like', 'her', 'brother'], 'jesslookedjustliketimherbrother'));
-
-console.log(respace(
-  JSON.parse('["frrrbbrrbfrfqqbbbrb","qr","b","rf","qqbbbbfrqbrrqrffbrqqqbqqfqfrr","r","ffqq","bffbqfqqbrrrf","fq","qfr","fr","rqrrbfbfq","r","f","qbqbrbrbqfqbbbfbbbfbq","bqqbbbqrbbrf","f"]'),
-  'bqqffbqbbfqrfrrrbbrrbfrfqqbbbrbfqfffffrfqfqfffffrrfqfrrqbqfrbfrqqrfrbrbbqbqbqqfqrfbfrfr',
-));

@@ -28,5 +28,3 @@ var subarraysDivByK = function (A, K) {
 };
 
 module.exports = subarraysDivByK;
-
-console.log(subarraysDivByK([1, 1, 1, 1], 5));
