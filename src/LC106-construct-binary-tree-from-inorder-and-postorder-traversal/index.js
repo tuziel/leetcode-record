@@ -28,4 +28,3 @@ var buildTree = function (inorder, postorder) {
 };
 
 module.exports = buildTree;
-/* global TreeNode */

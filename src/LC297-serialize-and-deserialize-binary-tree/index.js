@@ -73,4 +73,3 @@ module.exports = {
   serialize,
   deserialize,
 };
-/* global TreeNode */

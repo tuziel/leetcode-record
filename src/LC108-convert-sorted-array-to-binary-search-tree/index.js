@@ -27,4 +27,3 @@ var sortedArrayToBST = function (nums) {
 };
 
 module.exports = sortedArrayToBST;
-/* global TreeNode */

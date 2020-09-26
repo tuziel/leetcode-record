@@ -50,4 +50,3 @@ var recoverFromPreorder = function (S) {
 };
 
 module.exports = recoverFromPreorder;
-/* global TreeNode */

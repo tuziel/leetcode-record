@@ -42,4 +42,3 @@ var findMode = function (root) {
 };
 
 module.exports = findMode;
-/* global TreeNode */

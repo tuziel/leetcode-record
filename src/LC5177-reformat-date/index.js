@@ -18,7 +18,7 @@ var reformatDate = function (date) {
     'Dec': '12',
   };
 
-  var [_, day, month, year] = date.match(/(\d+)\w+ (\w+) (\d+)/);
+  var [, day, month, year] = date.match(/(\d+)\w+ (\w+) (\d+)/);
   return `${year}-${map[month]}-${day.replace(/^(\d)$/, '0$1')}`;
 };
 

@@ -1,4 +1,3 @@
-/* global describe it */
 const process = require('process');
 const expect = require('chai').expect;
 const { createList } = require('../utils');

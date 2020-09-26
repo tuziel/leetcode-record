@@ -48,4 +48,3 @@ var sortedListToBST = function (head) {
 };
 
 module.exports = sortedListToBST;
-/* global TreeNode */

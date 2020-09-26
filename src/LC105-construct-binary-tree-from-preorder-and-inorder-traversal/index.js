@@ -60,4 +60,3 @@ var buildTree = function (preorder, inorder) {
 };
 
 module.exports = buildTree;
-/* global TreeNode */
