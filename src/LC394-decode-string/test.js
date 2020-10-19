@@ -1,11 +1,12 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '394. 字符串解码';
 const tepmlate = ({ input, output }) =>
   `输入: ${input}
-      输出: ${output.slice(0, 64)}${output.length > 64 ? '...' : ''}`;
+      输出: ${slice64(output)}`;
 
 const samples = [
   { input: '', output: '' },

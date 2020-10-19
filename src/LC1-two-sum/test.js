@@ -1,12 +1,12 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '1. 两数之和';
-const tepmlate = ({ input, output }) => {
-  var list = JSON.stringify(input[0]);
-  return `输入: nums = ${list.slice(0, 64)}${list.length > 64 ? '...' : ''}
-            target = ${input[1]}
+const tepmlate = ({ input: [nums, target], output }) => {
+  return `输入: nums = ${slice64(nums)}
+            target = ${target}
       输出: ${output}`;
 };
 

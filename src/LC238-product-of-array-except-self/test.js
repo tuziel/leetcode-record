@@ -1,11 +1,12 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '238. 除自身以外数组的乘积';
 const tepmlate = ({ input, output }) =>
-  `输入: ${((a) => `${a.slice(0, 64)}${a.length > 64 ? '...' : ''}`)(JSON.stringify(input))}
-      输出: ${((a) => `${a.slice(0, 64)}${a.length > 64 ? '...' : ''}`)(JSON.stringify(output))}`;
+  `输入: ${slice64(input)}
+      输出: ${slice64(output)}`;
 
 const samples = [
   { input: [0, 0], output: [0, 0] },

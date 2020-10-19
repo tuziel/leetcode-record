@@ -1,11 +1,12 @@
 const process = require('process');
 const expect = require('chai').expect;
 const { createTree } = require('../utils');
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '5418. 二叉树中的伪回文路径';
 const tepmlate = ({ input, output }) =>
-  `输入: ${JSON.stringify(input).slice(0, 64)}...
+  `输入: ${slice64(input)}
       输出: ${output}`;
 
 const samples = [

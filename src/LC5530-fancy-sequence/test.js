@@ -1,12 +1,13 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '5530. 奇妙序列';
 const tepmlate = ({ input: [cmds, datas], output }) =>
-  `输入: ${((i) => `${i.slice(0, 64)}${i.length > 64 ? '...' : ''}`)(JSON.stringify(cmds))}
-            ${((i) => `${i.slice(0, 64)}${i.length > 64 ? '...' : ''}`)(JSON.stringify(datas))}
-      输出: ${output.slice(0, 64)}${output.length > 64 ? '...' : ''}`;
+  `输入: ${slice64(cmds)}
+            ${slice64(datas)}
+      输出: ${slice64(output)}`;
 
 const samples = [
   {

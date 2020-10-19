@@ -1,10 +1,11 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '685. 冗余连接 II';
 const tepmlate = ({ input, output }) =>
-  `输入: ${((i) => `${i.slice(0, 64)}${i.length > 64 ? '...' : ''}`)(JSON.stringify(input))}
+  `输入: ${slice64(input)}
       输出: ${JSON.stringify(output)}`;
 
 const samples = [

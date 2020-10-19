@@ -1,12 +1,13 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '76. 最小覆盖子串';
-const tepmlate = ({ input, output }) =>
-  `输入: S = "${input[0].length <= 64 ? input[0] : input[0].slice(0, 64) + '...'}",
-            T = "${input[1].length <= 64 ? input[1] : input[1].slice(0, 64) + '...'}"
-      输出: "${output.length <= 64 ? output : output.slice(0, 64) + '...'}"`;
+const tepmlate = ({ input: [s, t], output }) =>
+  `输入: S = ${slice64(s)}
+            T = ${slice64(t)}
+      输出: ${slice64(output)}`;
 
 const samples = [
   {

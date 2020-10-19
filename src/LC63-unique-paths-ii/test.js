@@ -1,10 +1,11 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
-const func = require('./index2');
+const func = require('.');
 const title = '63. 不同路径 II';
 const tepmlate = ({ input, output }) =>
-  `输入: ${input.slice(0, 64)}${input.length > 64 ? '...' : ''}
+  `输入: ${slice64(input)}
       输出: ${output}`;
 
 const samples = [

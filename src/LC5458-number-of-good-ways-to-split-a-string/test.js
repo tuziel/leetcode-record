@@ -1,10 +1,11 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '5458. 字符串的好分割数目';
 const tepmlate = ({ input, output }) =>
-  `输入: ${input.slice(0, 64)}${input.length > 64 ? '...' : ''}
+  `输入: ${slice64(input)}
       输出: ${output}`;
 
 const samples = [

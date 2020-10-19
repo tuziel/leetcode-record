@@ -1,12 +1,12 @@
 const process = require('process');
 const expect = require('chai').expect;
-const { createList } = require('../utils');
+const { createList, slice64 } = require('../utils');
 
 const func = require('.');
 const title = '143. 重排链表';
 const tepmlate = ({ input, output }) =>
-  `输入: ${((i) => `${i.slice(0, 64)}${i.length > 64 ? '...' : ''}`)(JSON.stringify(input))}
-      输出: ${output.slice(0, 64)}${output.length > 64 ? '...' : ''}`;
+  `输入: ${slice64(input)}
+      输出: ${slice64(output)}`;
 
 const samples = [
   { input: [], output: [] },

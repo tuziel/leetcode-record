@@ -1,10 +1,11 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '378. 有序矩阵中第K小的元素';
 const tepmlate = ({ input: [matrix, k], output }) =>
-  `输入: matrix = ${((i) => `${i.slice(0, 64)}${i.length > 64 ? '...' : ''}`)(JSON.stringify(matrix))}
+  `输入: matrix = ${slice64(matrix)}
             k = ${k}
       输出: ${output}`;
 

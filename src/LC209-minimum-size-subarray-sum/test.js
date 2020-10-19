@@ -1,10 +1,11 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '209. 长度最小的子数组';
-const tepmlate = ({ input, output }) =>
-  `输入: s=${input[0]}, nums${((i) => `${i.slice(0, 64)}${i.length > 56 ? '...' : ''}`)(JSON.stringify(input[1]))}
+const tepmlate = ({ input: [s, nums], output }) =>
+  `输入: s=${s}, nums${slice64(nums)}
       输出: ${output}`;
 
 const samples = [

@@ -1,11 +1,12 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '93. 复原IP地址';
 const tepmlate = ({ input, output }) =>
   `输入: ${input}
-      输出: ${((i) => `${i.slice(0, 64)}${i.length > 64 ? '...' : ''}`)(JSON.stringify(output))}`;
+      输出: ${slice64(output)}`;
 
 const samples = [
   { input: '', output: [] },

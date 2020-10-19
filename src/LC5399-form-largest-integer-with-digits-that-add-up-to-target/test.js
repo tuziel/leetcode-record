@@ -1,12 +1,13 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '5399. 数位成本和为目标值的最大数字';
-const tepmlate = ({ input, output }) =>
-  `输入: ${JSON.stringify(input[0])}
-            ${input[1]}
-      输出: ${output.length <= 64 ? output : output.slice(0, 64) + '...'}`;
+const tepmlate = ({ input: [cost, target], output }) =>
+  `输入: cost = ${slice64(cost)}
+            target = ${target}
+      输出: ${slice64(output)}`;
 
 const samples = [
   {
