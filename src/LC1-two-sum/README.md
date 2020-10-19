@@ -1,3 +1,9 @@
+---
+tags:
+- 数组
+- 哈希表
+---
+
 # 1. 两数之和 [EASY]
 
 <https://leetcode-cn.com/problems/two-sum/>
