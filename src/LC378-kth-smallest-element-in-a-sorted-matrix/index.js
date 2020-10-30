@@ -89,13 +89,4 @@ PriorityQueue.prototype.pop = function () {
   return head;
 };
 
-kthSmallest(
-  [
-    [1, 5, 9],
-    [10, 11, 13],
-    [12, 13, 15],
-  ],
-  8,
-);
-
 module.exports = kthSmallest;
