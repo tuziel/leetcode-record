@@ -6,41 +6,28 @@
  */
 var furthestBuilding = function (heights, bricks, ladders) {
   var len = heights.length;
-  var pq = new PriorityQueue((a, b) => a - b);
+  var pq = new PriorityQueue();
 
-  var next = 1;
-  while (next < len) {
-    var cost = heights[next] - heights[next - 1];
-    // console.log(cost);
-    if (cost <= 0) {
-      next++;
-    } else if (bricks >= cost) {
+  for (var pos = 0; pos < len - 1; pos++) {
+    var cost = heights[pos + 1] - heights[pos];
+
+    if (cost > 0) {
       pq.push(cost);
-      bricks -= cost;
-      next++;
-    } else {
-      if (ladders === 0) break;
-
-      if (pq.length() && pq.top() >= cost) {
-        ladders--;
-        bricks += pq.pop();
-      } else {
-        ladders--;
-        next++;
+      if (pq.length() > ladders) {
+        if (bricks < pq.top()) break;
+        else bricks -= pq.pop();
       }
     }
   }
 
-  return next - 1;
+  return pos;
 };
 
 /**
  * 优先队列
- * @param {(a, b) => number} compareFn 用于确定元素顺序的方法
  */
-function PriorityQueue(compareFn) {
+function PriorityQueue() {
   this.heap = [];
-  this.compareFn = compareFn;
 }
 
 /** 获取当前队列长度 */
@@ -56,13 +43,12 @@ PriorityQueue.prototype.push = function (item) {
 
   var curr = heap.length - 1;
   var parent;
-  var compareFn = this.compareFn;
 
   // 父节点大于当前节点时，交换节点
   // 当前节点大于父节点，或到达栈顶时停止
   while (curr > 0) {
     parent = (curr - 1) >> 1;
-    if (compareFn(heap[parent], heap[curr]) <= 0) break;
+    if (heap[parent] <= heap[curr]) break;
     [heap[curr], heap[parent]] = [heap[parent], heap[curr]];
     curr = parent;
   }
@@ -83,7 +69,6 @@ PriorityQueue.prototype.pop = function () {
 
   var curr = 0;
   var left, right;
-  var compareFn = this.compareFn;
   // 当前节点大于子节点时，交换节点
   // 子节点大于当前节点，或到达叶子节点时停止
   while (1) {
@@ -92,8 +77,8 @@ PriorityQueue.prototype.pop = function () {
     if (left >= len) break;
     right = (curr + 1) << 1;
     // 寻找最小的子节点进行比较
-    if (right < len && compareFn(heap[left], heap[right]) > 0) left = right;
-    if (compareFn(heap[curr], heap[left]) <= 0) break;
+    if (right < len && heap[left] > heap[right]) left = right;
+    if (heap[curr] <= heap[left]) break;
     [heap[curr], heap[left]] = [heap[left], heap[curr]];
     curr = left;
   }
