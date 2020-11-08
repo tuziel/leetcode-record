@@ -17,14 +17,14 @@ const testFile = resolve(__dirname, argv[2]);
 
 // 定时器用于判断测试样例超时
 let timerId = -1;
-function timeout(log) {
+function timeoutHandler(log) {
   // eslint-disable-next-line no-console
   console.error(`\n    ${symbols.error} ${log}\n      ${ansi.red('运行超时')}\n\n`);
   testProcess.kill();
 }
-function setTimer(log, delay = 5000) {
+function setTimer(log, timeout = 2000) {
   clearTimer();
-  timerId = setTimeout(() => timeout(log), delay);
+  timerId = setTimeout(() => timeoutHandler(log), timeout);
 }
 function clearTimer() {
   clearTimeout(timerId);
@@ -38,8 +38,8 @@ const testProcess = spawn(
 );
 
 // 测试进程每次执行样例时刷新定时器
-testProcess.on('message', ({ log, delay }) => {
-  setTimer(log, delay);
+testProcess.on('message', ({ log, timeout }) => {
+  setTimer(log, timeout);
 });
 
 // 测试完成，关闭定时器
