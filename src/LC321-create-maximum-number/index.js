@@ -16,7 +16,7 @@ var maxNumber = function (nums1, nums2, k) {
     var max1 = getMaxNumber(nums1, i);
     var max2 = getMaxNumber(nums2, k - i);
     var list = merge(max1, max2);
-    if (compare(result, list) > 0) result = list;
+    if (compare(result, 0, list, 0) > 0) result = list;
   }
 
   return result;
@@ -54,7 +54,7 @@ function merge(nums1, nums2) {
     } else if (a < b) {
       result.push(nums2[j++]);
     } else {
-      if (compare(nums1.slice(i), nums2.slice(j)) <= 0) result.push(nums1[i++]);
+      if (compare(nums1, i, nums2, j) <= 0) result.push(nums1[i++]);
       else result.push(nums2[j++]);
     }
   }
@@ -62,13 +62,15 @@ function merge(nums1, nums2) {
   return result;
 }
 
-function compare(nums1, nums2) {
-  var len = Math.min(nums1.length, nums2.length);
-  for (var i = 0; i < len; i++) {
-    if (nums1[i] === nums2[i]) continue;
-    return nums2[i] - nums1[i];
+function compare(nums1, i1, nums2, i2) {
+  var len1 = nums1.length - i1;
+  var len2 = nums2.length - i2;
+  var end = Math.min(len1, len2);
+  for (var i = 0; i < end; i++) {
+    if (nums1[i1 + i] === nums2[i2 + i]) continue;
+    return nums2[i2 + i] - nums1[i1 + i];
   }
-  return nums2.length - nums1.length;
+  return len2 - len1;
 }
 
 module.exports = maxNumber;
