@@ -1,0 +1,8 @@
+---
+tags:
+- 贪心算法
+---
+
+# 861. 翻转矩阵后的得分 [Medium]
+
+<https://leetcode-cn.com/problems/score-after-flipping-matrix/>
