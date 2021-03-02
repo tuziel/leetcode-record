@@ -5,23 +5,23 @@
 var lengthOfLongestSubstring = function (s) {
   var len = s.length;
   if (len <= 1) return len;
-  var cache = {};
-  var last = -1;
+  var indexes = {};
   var max = 1;
-  var dis;
+  var left, right;
 
-  for (var i = 0, l = len; i < l; i++) {
-    var c = cache[s[i]];
-    if (c !== undefined) {
-      dis = i - last - 1;
-      if (dis > max) max = dis;
-      if (c > last) last = c;
+  for (left = right = 0; right < len; right++) {
+    var index = indexes[s[right]];
+    // 遇到相同的字符
+    if (index !== undefined) {
+      // 更新距离
+      max = Math.max(max, right - left);
+      // 去掉重复字符
+      if (index >= left) left = index + 1;
     }
-    cache[s[i]] = i;
+    indexes[s[right]] = right;
   }
-  dis = i - last - 1;
 
-  return max > dis ? max : dis;
+  return Math.max(max, right - left);
 };
 
 module.exports = lengthOfLongestSubstring;

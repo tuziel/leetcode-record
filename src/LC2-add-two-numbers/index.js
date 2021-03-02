@@ -1,8 +1,8 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
@@ -11,26 +11,19 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function (l1, l2) {
-  var head = new ListNode();
-  var curr = head;
-  var flag = 0;
+  var node = new ListNode(null, l1);
+  var carry = 0;
 
-  do {
-    var n1 = l1 ? l1.val : 0;
-    var n2 = l2 ? l2.val : 0;
-    var s = n1 + n2 + flag;
+  // 把 l2 按位加到 l1 中
+  while (l2 || carry) {
+    node = node.next || (node.next = new ListNode(0));
+    var val = node.val + (l2 ? l2.val : 0) + carry;
+    carry = val >= 10 ? 1 : 0;
+    node.val = val % 10;
+    if (l2) l2 = l2.next;
+  }
 
-    curr = curr.next = new ListNode(s % 10);
-
-    flag = s >= 10 ? 1 : 0;
-
-    l1 = l1 && l1.next;
-    l2 = l2 && l2.next;
-  } while (l1 || l2);
-
-  curr.next = flag ? new ListNode(1) : null;
-
-  return head.next;
+  return l1;
 };
 
 module.exports = addTwoNumbers;
