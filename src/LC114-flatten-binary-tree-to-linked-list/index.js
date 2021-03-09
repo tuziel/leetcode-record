@@ -34,5 +34,4 @@ var flatten = function (root) {
   return end;
 };
 
-
 module.exports = flatten;

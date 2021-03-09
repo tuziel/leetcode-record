@@ -48,4 +48,3 @@
 * `days`按顺序严格递增
 * `costs.length == 3`
 * `1 <= costs[i] <= 1000`
-

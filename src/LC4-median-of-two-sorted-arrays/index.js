@@ -57,4 +57,3 @@ function searchBorderLeft(arr, verifier) {
 }
 
 module.exports = findMedianSortedArrays;
-

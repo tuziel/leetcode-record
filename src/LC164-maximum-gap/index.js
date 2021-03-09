@@ -32,5 +32,4 @@ var maximumGap = function (nums) {
   return max;
 };
 
-
 module.exports = maximumGap;

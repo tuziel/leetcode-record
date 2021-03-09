@@ -18,5 +18,4 @@ var concatenatedBinary = function (n) {
   return res;
 };
 
-
 module.exports = concatenatedBinary;

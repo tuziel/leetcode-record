@@ -20,5 +20,4 @@ var maxProduct = function (nums) {
   return (multiplier[0] - 1) * (multiplier[1] - 1);
 };
 
-
 module.exports = maxProduct;

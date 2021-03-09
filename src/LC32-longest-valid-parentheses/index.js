@@ -28,4 +28,3 @@ var longestValidParentheses = function (s) {
 
   return res;
 };
-

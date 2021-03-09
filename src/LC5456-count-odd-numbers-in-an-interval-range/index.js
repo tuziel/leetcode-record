@@ -8,5 +8,4 @@ var countOdds = function (low, high) {
   return (diff >> 1) + (diff % 2 && low % 2);
 };
 
-
 module.exports = countOdds;
