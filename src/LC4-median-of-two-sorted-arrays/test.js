@@ -1,11 +1,12 @@
 const process = require('process');
 const expect = require('chai').expect;
+const { slice64 } = require('../utils');
 
 const func = require('.');
 const title = '4. 寻找两个正序数组的中位数';
 const tepmlate = ({ input: [nums1, nums2], output }) =>
-  `输入: nums1=${((i) => `${i.slice(0, 64)}${i.length > 64 ? '...' : ''}`)(JSON.stringify(nums1))}
-         nums2=${((i) => `${i.slice(0, 64)}${i.length > 64 ? '...' : ''}`)(JSON.stringify(nums2))}
+  `输入: nums1 = ${slice64(nums1)}
+            nums2 = ${slice64(nums2)}
       输出: ${output}`;
 
 const samples = [
