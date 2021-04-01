@@ -4,6 +4,8 @@ module.exports = {
   createTreeList,
   ListNode,
   createList,
+  Node,
+  createGraph,
   slice64,
 };
 
@@ -62,17 +64,18 @@ function createTreeList(values) {
  * @class
  * @template T
  * @param {T} val 节点的值
+ * @param {ListNode<T>} next 下一个节点
  */
-function ListNode(val) {
-  this.val = val;
-  this.next = null;
+function ListNode(val, next) {
+  this.val = (val === undefined ? 0 : val);
+  this.next = (next === undefined ? null : next);
 }
 
 /**
  * 生成链表并返回头节点
  * @template T
  * @param {T[]} values 节点值的列表
- * @returns {ListNode<T>[]} 链表的头节点
+ * @returns {ListNode<T>} 链表的头节点
  */
 function createList(values) {
   let len = values.length;
@@ -84,6 +87,36 @@ function createList(values) {
     node = prev;
   }
   return node;
+}
+
+/**
+ * 图节点
+ * @template T
+ * @param {T} val
+ * @param {Node<T>[]} neighbors
+ */
+function Node(val, neighbors) {
+  this.val = val === undefined ? 0 : val;
+  this.neighbors = neighbors === undefined ? [] : neighbors;
+}
+
+/**
+ * 生成图并返回第一个节点
+ * @param {number[]} edges
+ * @returns {Node<number>} 图的第一个节点
+ */
+function createGraph(edges) {
+  if (!edges.length) return null;
+
+  var graph = edges.map((_, i) => new Node(i + 1));
+
+  graph.forEach((node, i) => {
+    for (var j of edges[i]) {
+      node.neighbors.push(graph[j - 1]);
+    }
+  });
+
+  return graph[0];
 }
 
 /**

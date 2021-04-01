@@ -10,6 +10,7 @@ module.exports = {
     'TreeNode': 'readonly',
     'ListNode': 'readonly',
     'describe': 'readonly',
+    'Node': 'readonly',
     'it': 'readonly',
   },
   'parserOptions': {

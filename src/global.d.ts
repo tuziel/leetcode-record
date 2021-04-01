@@ -12,15 +12,25 @@ interface TreeNodeConstructor {
 
 interface ListNode<T> {
   val: T;
-  left: ListNode<T> | null;
+  next: ListNode<T> | null;
 }
 
 interface ListNodeConstructor {
-  new <T>(val: T): ListNode<T>;
+  new <T>(val: T, next: ListNode<T>): ListNode<T>;
+}
+
+interface Node<T> {
+  val: T;
+  neighbors: this[];
+}
+
+interface NodeConstructor {
+  new <T>(val: T, neighbors: Node<T>[]): Node<T>;
 }
 
 declare global {
   const _: typeof lodash;
   const TreeNode: TreeNodeConstructor;
   const ListNode: ListNodeConstructor;
+  const Node: NodeConstructor;
 }
