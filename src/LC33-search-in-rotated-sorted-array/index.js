@@ -4,25 +4,27 @@
  * @return {number}
  */
 var search = function (nums, target) {
-  var len = nums.length;
-  if (len === 0) return -1;
   var base = nums[0];
-  if (target === base) return 0;
+  var v = target >= base;
+  var left = 0;
+  var right = nums.length - 1;
 
-  var v = target > base ? 1 : 0;
-  var i = len >> 1;
-  var step, x;
+  while (left <= right) {
+    var mid = (left + right) >> 1;
+    var m = nums[mid];
+    if (m === target) return mid;
 
-  while (step !== 0) {
-    len = (len >> 1) + (len & 1);
-    step = len >> 1;
-    x = nums[i];
-    if (x < base ^ v) {
-      if (target === x) return i;
-      else i += target > x ? step : -step;
-    } else {
-      i += v ? -step : step;
-    }
+    /**
+     * target < m | v | m >= base |
+     *      T     | T |     T     | right = mid - 1;
+     *      T     | F |     T     | left  = mid + 1;
+     *      T     | F |     F     | right = mid - 1;
+     *      F     | T |     T     | left  = mid + 1;
+     *      F     | T |     F     | right = mid - 1;
+     *      F     | F |     F     | left  = mid + 1;
+     */
+    if ((target < m) ^ v ^ (m >= base)) right = mid - 1;
+    else left = mid + 1;
   }
 
   return -1;
