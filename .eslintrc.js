@@ -1,8 +1,9 @@
 module.exports = {
   'env': {
-    'es2020': true,
+    'es2022': true,
     'commonjs': true,
     'node': true,
+    'mocha': true,
   },
   'extends': 'eslint:recommended',
   'globals': {
@@ -11,10 +12,9 @@ module.exports = {
     'ListNode': 'readonly',
     'describe': 'readonly',
     'Node': 'readonly',
-    'it': 'readonly',
   },
   'parserOptions': {
-    'ecmaVersion': 11,
+    'ecmaVersion ': 'latest',
     'sourceType': 'module',
   },
   'rules': {
